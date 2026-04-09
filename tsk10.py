@@ -1,9 +1,7 @@
-from typing import List, Tuple
-
 class Point:
     """A class representing a point on the coordinate plane."""
     
-    def __init__(self, coordinates: Tuple[float, float]) -> None:
+    def __init__(self, coordinates: tuple[float, float]) -> None:
         """Initialize point with coordinates.
         
         Args:
@@ -74,7 +72,7 @@ class CoordinateSystem:
     
     def __init__(self) -> None:
         """Initialize empty coordinate system."""
-        self.segments: List[Segment] = []
+        self.segments: list[Segment] = []
     
     def add_segment(self, segment: Segment) -> None:
         """Add a segment to the coordinate system.
@@ -90,7 +88,7 @@ class CoordinateSystem:
         Returns:
             String containing all segments in list format with proper formatting
         """
-        formatted_segments: List[str] = [str(segment) for segment in self.segments]
+        formatted_segments: list[str] = [str(segment) for segment in self.segments]
         return "[" + ", ".join(formatted_segments) + "]"
     
     def __repr__(self) -> str:
