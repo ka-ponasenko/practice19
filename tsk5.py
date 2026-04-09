@@ -1,7 +1,7 @@
 class Game:
     """A basketball game class that manages scores between two teams."""
     
-    def __init__(self, teams):
+    def __init__(self, teams: dict):
         """
         Initialize a new basketball game with two teams.
         
@@ -19,7 +19,7 @@ class Game:
             2: 0
         }
     
-    def ball_throw(self, command, points):
+    def ball_throw(self, command: int, points: int):
         """
         Add points to the specified team.
         
@@ -30,7 +30,7 @@ class Game:
         if command in self.scores:
             self.scores[command] += points
     
-    def get_score(self):
+    def get_score(self) -> tuple:
         """
         Get the current score of the game.
         
@@ -39,7 +39,7 @@ class Game:
         """
         return (self.scores[1], self.scores[2])
     
-    def get_winner(self):
+    def get_winner(self) -> str:
         """
         Determine the winner of the game.
         
