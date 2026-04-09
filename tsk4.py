@@ -1,7 +1,9 @@
+from typing import Optional, Any
+
 class User:
     """A class representing a website user."""
     
-    def __init__(self, id, nick_name, first_name, last_name=None, middle_name=None, gender=None):
+    def __init__(self, id: int, nick_name: str, first_name: str, last_name: Optional[str] = None, middle_name: Optional[str] = None, gender: Optional[str] = None) -> None:
         """Initialize a user with required and optional attributes.
         
         Args:
@@ -12,14 +14,14 @@ class User:
             middle_name (str, optional): User middle name. Defaults to None.
             gender (str, optional): User gender. Defaults to None.
         """
-        self.id = id
-        self.nick_name = nick_name
-        self.first_name = first_name
-        self.last_name = last_name
-        self.middle_name = middle_name
-        self.gender = gender
+        self.id: int = id
+        self.nick_name: str = nick_name
+        self.first_name: str = first_name
+        self.last_name: Optional[str] = last_name
+        self.middle_name: Optional[str] = middle_name
+        self.gender: Optional[str] = gender
     
-    def update(self, *args):
+    def update(self, *args: Any) -> None:
         """Update user attributes. Empty strings are ignored.
         
         Args:
@@ -41,7 +43,7 @@ class User:
             case 6:
                 self.id, self.nick_name, self.first_name, self.last_name, self.middle_name, self.gender = values
     
-    def __str__(self):
+    def __str__(self) -> str:
         """Return string representation of the user.
         
         Returns:
