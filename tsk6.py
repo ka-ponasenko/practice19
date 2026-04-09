@@ -1,7 +1,7 @@
 class Point:
     """A class representing a point on a 2D plane."""
     
-    def __init__(self, coordinates=None):
+    def __init__(self, coordinates: = None)-> tuple:
         """
         Initialize a point with given coordinates.
         
@@ -17,7 +17,7 @@ class Point:
             self.y = coordinates[1]
 
     
-    def get_x(self):
+    def get_x(self) -> float:
         """
         Get the x-coordinate of the point.
         
@@ -27,7 +27,7 @@ class Point:
         return self.x
 
 
-    def get_y(self):
+    def get_y(self) -> float:
         """
         Get the y-coordinate of the point.
         
@@ -37,7 +37,7 @@ class Point:
         return self.y
     
 
-    def distance(self, other):
+    def distance(self, other) -> float:
         """
         Calculate the Euclidean distance between this point and another point.
         
@@ -50,7 +50,7 @@ class Point:
         return ((self.x - other.x) ** 2 + (self.y - other.y) ** 2) ** 0.5
     
 
-    def sum(self, other):
+    def sum(self, other) -> float:
         """
         Create a new point whose coordinates are the sum of this point and another point.
         
@@ -58,12 +58,12 @@ class Point:
             other (Point): Another point object
             
         Returns:
-            Point: A new point with coordinates (self.x + other.x, self.y + other.y)
+           float: A new point with coordinates (self.x + other.x, self.y + other.y)
         """
         return Point((self.x + other.x, self.y + other.y))
     
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return a string representation of the point.
         
