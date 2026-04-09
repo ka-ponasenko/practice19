@@ -1,7 +1,7 @@
 class MorseMsg:
     """A class representing a message in Morse code."""
     
-    MORSE_ENG = {
+    MORSE_ENG: dict[str, str] = {
         '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
         '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
         '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
@@ -10,7 +10,7 @@ class MorseMsg:
         '--..': 'Z'
     }
     
-    MORSE_RU = {
+    MORSE_RU: dict[str, str] = {
         '.-': 'А', '-...': 'Б', '.--': 'В', '--.': 'Г', '-..': 'Д',
         '.': 'Е', '...-': 'Ж', '--..': 'З', '..': 'И', '.---': 'Й',
         '-.-': 'К', '.-..': 'Л', '--': 'М', '-.': 'Н', '---': 'О',
@@ -20,11 +20,11 @@ class MorseMsg:
         '..--': 'Ю', '.-..-': 'Я'
     }
     
-    VOWELS_ENG = {'A', 'E', 'I', 'O', 'U', 'Y'}
+    VOWELS_ENG: set[str] = {'A', 'E', 'I', 'O', 'U', 'Y'}
     
-    VOWELS_RU = {'А', 'Е', 'Ё', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я'}
+    VOWELS_RU: set[str] = {'А', 'Е', 'Ё', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я'}
     
-    def __init__(self, *args):
+    def __init__(self, *args)-> str:
         """
         Initialize a MorseMsg instance.
         
@@ -34,37 +34,37 @@ class MorseMsg:
                    - A single string with space-separated Morse patterns
         """
         if len(args) == 1 and ' ' in args[0]:
-            self.morse_letters = args[0].split()
+            self.morse_letters: list[str] = args[0].split()
         else:
-            self.morse_letters = list(args)
+            self.morse_letters: list[str] = list(args)
     
-    def eng_decode(self):
+    def eng_decode(self) -> str:
         """
         Decode the Morse code message into English letters.
         
         Returns:
             str: The decoded message in uppercase English letters.
         """
-        result = ''
+        result: str = ''
         for morse in self.morse_letters:
             if morse in self.MORSE_ENG:
                 result += self.MORSE_ENG[morse]
         return result
     
-    def ru_decode(self):
+    def ru_decode(self) -> str:
         """
         Decode the Morse code message into Russian Cyrillic letters.
         
         Returns:
             str: The decoded message in uppercase Russian letters.
         """
-        result = ''
+        result: str = ''
         for morse in self.morse_letters:
             if morse in self.MORSE_RU:
                 result += self.MORSE_RU[morse]
         return result
     
-    def get_vowels(self, lang):
+    def get_vowels(self, lang: str) -> list[str]:
         """
         Get the vowels from the decoded message in the specified language.
         
@@ -75,8 +75,8 @@ class MorseMsg:
             list: A list of vowels in the order they appear in the message.
         """
         if lang == 'eng':
-            decoded = self.eng_decode()
-            vowels = self.VOWELS_ENG
+            decoded: str = self.eng_decode()
+            vowels: set[str] = self.VOWELS_ENG
         elif lang == 'ru':
             decoded = self.ru_decode()
             vowels = self.VOWELS_RU
@@ -85,7 +85,7 @@ class MorseMsg:
         
         return [char for char in decoded if char in vowels]
     
-    def get_consonants(self, lang):
+    def get_consonants(self, lang: str) -> list[str]:
         """
         Get the consonants from the decoded message in the specified language.
         
@@ -96,8 +96,8 @@ class MorseMsg:
             list: A list of consonants in the order they appear in the message.
         """
         if lang == 'eng':
-            decoded = self.eng_decode()
-            vowels = self.VOWELS_ENG
+            decoded: str = self.eng_decode()
+            vowels: set[str] = self.VOWELS_ENG
         elif lang == 'ru':
             decoded = self.ru_decode()
             vowels = self.VOWELS_RU
@@ -106,7 +106,7 @@ class MorseMsg:
         
         return [char for char in decoded if char not in vowels]
     
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return a string representation of the Morse code message.
         
