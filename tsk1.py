@@ -1,22 +1,22 @@
 class Dog:
     """
-    Класс, представляющий собаку.
+    A class representing a dog.
     
-    Атрибуты:
-        name (str): кличка собаки
+    Attributes:
+        name (str): The dog's name
     """
     
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         """
-        Инициализирует объект Dog с заданной кличкой.
+        Initializes a Dog object with the given name.
         
-        Аргументы:
-            name (str): кличка собаки
+        Args:
+            name (str): The dog's name
         """
         self.name = name
     
-    def say(self):
+    def say(self) -> None:
         """
-        Выводит звук, который издаёт собака.
+        Prints the sound that the dog makes.
         """
         print("Гав!")
